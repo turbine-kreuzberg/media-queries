@@ -2,6 +2,7 @@
 
 A collection of CSS media queries and some test files.
 
+**TL;DR:** The file [six-breakpoints-revised.htm](six-breakpoints-revised.htm) contains the final media query definitions.
 
 ## Motivation
 

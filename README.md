@@ -4,6 +4,11 @@ A collection of CSS media queries and some test files.
 
 **TL;DR:** The file [six-breakpoints-revised.htm](six-breakpoints-revised.htm) contains the final media query definitions.
 
+See the demo files in action using rawgit.com:
+
+* https://rawgit.com/votum/media-queries/master/four-breakpoints-revised.htm
+* https://rawgit.com/votum/media-queries/master/six-breakpoints-revised.htm
+
 ## Motivation
 
 The goal was to find (initially four) CSS media queries that would work across different mobile devices sizes, OS and browsers. We needed two types of media queries for each breakpoint: One that is active for a single brekapoint only and one that is active from the smallest screen size to the given breakpoint so that CSS property inheritance could be used across multiple breakpoints.

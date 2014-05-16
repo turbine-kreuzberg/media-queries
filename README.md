@@ -38,6 +38,6 @@ We went through some tedious testing on multiple devices. For that purpose I cre
 
 ## Acknowledgements
 
-* Stephan Werk <Stephan.Werk@umusic.com> and Dietrich Löbner <Dietrich.Loebner@umusic.com> from Universal Music Germany for providing a lot of browser and device statistics data as well as implementing the initial versions of the media queries.
-* Markus Schulz <markus.schulz@votum.de> for generating the screensize guide.
-* Thomas Heuer <thomas.heuer@votum.de> for putting this all together, testing it and rewriting the media queries over and over.
+* [Stephan Werk](Stephan.Werk@umusic.com) and [Dietrich Löbner](Dietrich.Loebner@umusic.com) from Universal Music Germany for providing a lot of browser and device statistics data as well as implementing the initial versions of the media queries.
+* [Markus Schulz](markus.schulz@votum.de) for generating the screensize guide.
+* [Thomas Heuer](thomas.heuer@votum.de) for putting this all together, testing it and rewriting the media queries over and over.

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1">
+        <title>Four CSS media query breakpoints</title>
+        <style>
+            html {
+                /* The basic grid size for small devices */
+                font-size: 9.333333333px;
+            }
+            @media (min-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5),
+                (min-width: 480px) and (min-resolution: 144dpi),
+                (min-width: 480px) and (-webkit-min-device-pixel-ratio: 2.0),
+                (min-width: 480px) and (min-resolution: 192dpi),
+                (min-width: 480px) and (-webkit-min-device-pixel-ratio: 3.0),
+                (min-width: 480px) and (min-resolution: 288dpi),
+                (min-width: 720px) and (min-resolution: 96dpi),
+                (min-width: 720px) and (min-resolution: 124dpi) {
+
+                /* Increase basic grid size for medium screens and larger */
+                html {
+                    font-size: 10.666666667px;
+                }
+            }
+
+            body {
+                margin: 0;
+                color: #555;
+                background-color: #fff;
+
+                font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+                /**
+                 * This is the basic font-size, given as a multiplier of the basic grid size.
+                 * The basic grid size is also set as font-size, but on the HTML element
+                 * and is just used as a pixel-refrence for the unit "rem" (root em).
+                 * Thus, the default font-size is
+                 *      1.5 * 9.333333333px  = 13.999999999px
+                 * The basic grid size on the HTML element is increased for medium and large screens.
+                 * That bigger font-size is:
+                 *      1.5 * 10.666666667px = 16px.
+                 */
+                font-size: 1.5rem;
+
+                /**
+                 * The line height is a multiplier for the computed font-size.
+                 * For example: 1.330357143 * 16px = 21.285714288px
+                 */
+                line-height: 1.330357143;
+            }
+
+            /**
+             * Headline- and special font-sizes as multiplicators to the basic grid size.
+             */
+            .alpha { /* super-big teaser text */
+                font-size: 2.9325009000959996rem;
+            }
+            .beta { /* H1 */
+                font-size: 2.3452502399999995rem;
+            }
+            .gamma { /* H2 */
+                font-size: 1.8756rem;
+            }
+            .delta { /* H3 */
+                font-size: 1.5rem;
+            }
+            .epsilon { /* H4 */
+                font-size: 1.199616122840691rem;
+            }
+            .zeta { /* small print and notes */
+                font-size: 0.9593858947862213rem;
+            }
+
+            #width-display {
+                width: 100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                border-top: 1px solid #aaa;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            #width-display tr :first-child {
+                width: 20%;
+            }
+            #width-display td {
+                border: 1px solid #aaa;
+            }
+
+            /**
+             * Test output for this template file.
+             */
+            .breakpoint-overview {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                list-style: none;
+                overflow: hidden;
+            }
+            .breakpoint-overview li {
+                float: left;
+                width: 25%;
+                height: 10em;
+                height: 50vh;
+                padding-top: 4em;
+                padding-top: 23vh;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                text-align: center;
+                font-size: 2.3452502399999995rem; /* H1 size */
+                color: #fff;
+            }
+
+            /**
+             * CSS Breakpoints
+             *
+             * There are two media-query definitions each breakpoint – one that may be
+             * inherited from and the other for that current breakpoint only.
+             * For example, a CSS property defined in @screen-sm will be visible on
+             * small screens and anything bigger (thus also at @screen-md and @screen-lg).
+             * A CSS property defined in @screen-sm-only should be visible only for this
+             * specific screen size.
+             *
+             * The variable identifiers are those that we are using in the LESS CSS source
+             * files. They are not directly usable as variables in plain CSS though.
+             *
+             * XS: Older devices with low resolution
+             * SM: Small screen / tablet
+             * MD: Medium screen / desktop
+             * LG: Large screen / wide desktop
+             *
+             * @author Stephan Werk <Stephan.Werk@umusic.com>
+             * @author Dietrich Löbner <Dietrich.Loebner@umusic.com>
+             * @author Thomas Heuer <thomas.heuer@votum.de>
+             */
+
+            /* @screen-xs: */
+            @media all {
+
+                .breakpoint-overview li.xs {
+                    background-color: #ff851b;
+                }
+
+            }
+            /* @screen-xs-only: */
+            @media (max-width: 479px) and (-webkit-device-pixel-ratio: 1.0),
+            (max-width: 479px) and (resolution: 96dpi) {
+
+                .breakpoint-overview li.xs-only {
+                    background-color: #ff851b;
+                }
+
+            }
+
+            /* @screen-sm: */
+            @media (-webkit-min-device-pixel-ratio: 1.5),
+                (min-resolution: 144dpi),
+                (-webkit-min-device-pixel-ratio: 2.0),
+                (min-resolution: 192dpi),
+                (-webkit-min-device-pixel-ratio: 3.0),
+                (min-resolution: 288dpi),
+                (min-width: 480px) and (-webkit-min-device-pixel-ratio: 1.0),
+                (min-width: 480px) and (min-resolution: 96dpi) {
+
+                .breakpoint-overview li.sm {
+                    background-color: #85144b;
+                }
+
+            }
+            /* @screen-sm-only: */
+            @media (max-width: 479px) and (-webkit-min-device-pixel-ratio: 1.5),
+                (max-width: 479px) and (min-resolution: 144dpi),
+                (max-width: 479px) and (-webkit-min-device-pixel-ratio: 2.0),
+                (max-width: 479px) and (min-resolution: 192dpi),
+                (max-width: 479px) and (-webkit-min-device-pixel-ratio: 3.0),
+                (max-width: 479px) and (min-resolution: 288dpi),
+                /* This rule cuases a bug on iOS Safari so that some breakpoints do overlap:
+                 * (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.0), */
+                (min-width: 480px) and (max-width: 719px) and (resolution: 96dpi) {
+
+                .breakpoint-overview li.sm-only {
+                    background-color: #85144b;
+                }
+
+            }
+
+            /* @screen-md: */
+            @media (min-width: 480px) and (-webkit-min-device-pixel-ratio: 1.5),
+                (min-width: 480px) and (min-resolution: 144dpi),
+                (min-width: 480px) and (-webkit-min-device-pixel-ratio: 2.0),
+                (min-width: 480px) and (min-resolution: 192dpi),
+                (min-width: 480px) and (-webkit-min-device-pixel-ratio: 3.0),
+                (min-width: 480px) and (min-resolution: 288dpi),
+                (min-width: 720px) and (-webkit-min-device-pixel-ratio: 1.0),
+                (min-width: 720px) and (min-resolution: 96dpi),
+                (min-width: 720px) and (-webkit-min-device-pixel-ratio: 1.3),
+                (min-width: 720px) and (min-resolution: 124dpi) {
+
+                .breakpoint-overview li.md {
+                    background-color: #b10dc9;
+                }
+
+            }
+            /* @screen-md-only: */
+            @media (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.5),
+                (min-width: 480px) and (max-width: 719px) and (min-resolution: 144dpi),
+                (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 2.0),
+                (min-width: 480px) and (max-width: 719px) and (min-resolution: 192dpi),
+                (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 3.0),
+                (min-width: 480px) and (max-width: 719px) and (min-resolution: 288dpi),
+                /* The following two rules would match both using 720px: iPad Retina and Samsung Tablets,
+                 * thus we are increasing the px value to 799, which is above the iPad width, but below the Samsung Tablet width; */
+                (min-width: 720px) and (max-width: 1023px) and (-webkit-device-pixel-ratio: 1.0),
+                (min-width: 720px) and (max-width: 1023px) and (-webkit-device-pixel-ratio: 1.5),
+                (min-width: 720px) and (max-width: 1023px) and (min-resolution: 96dpi),
+                (min-width: 720px) and (max-width: 1023px) and (min-resolution: 124dpi) {
+
+                .breakpoint-overview li.md-only {
+                    background-color: #b10dc9;
+                }
+
+            }
+
+            /* @screen-lg: */
+            @media (min-width: 720px) and (-webkit-min-device-pixel-ratio: 2.0),
+                (min-width: 720px) and (min-resolution: 192dpi),
+                (min-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.0),
+                (min-width: 1024px) and (min-resolution: 96dpi),
+                (width: 1280px) and (-webkit-min-device-pixel-ratio: 1.3),
+                (width: 1280px) and (min-resolution: 124dpi) {
+
+                .breakpoint-overview li.lg,
+                /* @screen-lg-only = @screen-lg since this is the biggest breakpoint */
+                .breakpoint-overview li.lg-only {
+                    background-color: #0074d9;
+                }
+
+            }
+
+
+
+            body:before, body:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                padding: 0 1em;
+                color: #ccc;
+                background: #333;
+                line-height: 2em;
+            }
+
+            /* device-pixel media queries */
+            @media (-webkit-min-device-pixel-ratio: 1.0) {
+                body:after {
+                    content: 'min-device-pixel-ratio: 1.0';
+                    right: 0;
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 1.3) {
+                body:after {
+                    content: 'min-device-pixel-ratio: 1.3';
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 1.5) {
+                body:after {
+                    content: 'min-device-pixel-ratio: 1.5';
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 2.0) {
+                body:after {
+                    content: 'min-device-pixel-ratio: 2.0';
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3.0) {
+                body:after {
+                    content: 'min-device-pixel-ratio: 3.0';
+                }
+            }
+
+            /* resolution mdeia queries */
+            @media (min-resolution: 96dpi) {
+                body:before {
+                    content: 'min-resolution: 96dpi';
+                    left: 0;
+                }
+            }
+            @media (min-resolution: 124dpi) {
+                body:before {
+                    content: 'min-resolution: 124dpi';
+                }
+            }
+            @media (min-resolution: 144dpi) {
+                body:before {
+                    content: 'min-resolution: 144dpi';
+                }
+            }
+            @media (min-resolution: 192dpi) {
+                body:before {
+                    content: 'min-resolution: 192dpi';
+                }
+            }
+            @media (min-resolution: 288dpi) {
+                body:before {
+                    content: 'min-resolution: 288dpi';
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <ul class="breakpoint-overview">
+            <li class="xs">XS</li>
+            <li class="sm">SM</li>
+            <li class="md">MD</li>
+            <li class="lg">LG</li>
+        </ul>
+        <ul class="breakpoint-overview">
+            <li class="xs-only">XS only</li>
+            <li class="sm-only">SM only</li>
+            <li class="md-only">MD only</li>
+            <li class="lg-only">LG only</li>
+        </ul>
+
+        <table id="width-display">
+            <tr>
+                <th>&nbsp;</th>
+                <th>width</th>
+                <th>height</th>
+            </tr>
+            <tr>
+                <th>screen</th>
+                <td id="screen-width"></td>
+                <td id="screen-height"></td>
+            </tr>
+            <tr>
+                <th>window outer</th>
+                <td id="window-outer-width"></td>
+                <td id="window-outer-height"></td>
+            </tr>
+            <tr>
+                <th>window inner</th>
+                <td id="window-inner-width"></td>
+                <td id="window-inner-height"></td>
+            </tr>
+            <tr>
+                <th>document</th>
+                <td id="document-width"></td>
+                <td id="document-height"></td>
+            </tr>
+        </table>
+
+        <script>
+            (function() {
+
+                var displayWidth = function() {
+                    document.getElementById( 'screen-width' ).innerText = screen.width;
+                    document.getElementById( 'screen-height' ).innerText = screen.height;
+                    document.getElementById( 'window-outer-width' ).innerText = window.outerWidth;
+                    document.getElementById( 'window-outer-height' ).innerText = window.outerHeight;
+                    document.getElementById( 'window-inner-width' ).innerText = window.innerWidth;
+                    document.getElementById( 'window-inner-height' ).innerText = window.innerHeight;
+                    document.getElementById( 'document-width' ).innerText = document.documentElement.clientWidth;
+                    document.getElementById( 'document-height' ).innerText = document.documentElement.clientHeight;
+                };
+
+                displayWidth();
+                document.addEventListener( 'resize', function() {
+                    displayWidth();
+                }, false );
+            })();
+        </script>
+
+    </body>
+</html>

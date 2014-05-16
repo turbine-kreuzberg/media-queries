@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1">
+        <title>Four CSS media query breakpoints</title>
+        <style>
+            html {
+                font-size: 9.333333333px;
+            }
+            @media (min-width: 768px) {
+                html {
+                    font-size: 10.666666667px;
+                }
+            }
+            body {
+                font-size: 1.5rem;
+                line-height: 1.330357143;
+            }
+            body:before {
+                position: absolute;
+                left: 50%;
+                width: 30rem;
+                margin-left: -15rem;
+                color: rgba(0, 0, 0, .75);
+                background: rgba(255, 255, 255, .5);
+                text-align: center;
+                font-family:"Liberation Sans", Arimo, FreeSans, "Nimbus Sans L", Helvetica, Arial, sans-serif;
+            }
+            body:before {
+                top: 50%;
+                height: 1.4em;
+                margin-top: -.7em;
+                font-size: 4rem;
+                line-height: 1.4em;
+            }
+
+            body {
+                background-color: #ffdc00;
+            }
+            body:before {
+                content:'undefined';
+            }
+
+            /**
+             * CSS Breakpoints
+             *
+             * Four media query breakpoints that do only work for the respective screen size,
+             * but do not allow inheritance from smaller screen sizes. There are some overlappings
+             * though – i.e. the S and M breakpoints are valid at the same time on some devices
+             * (especially Android native browser on small screens).
+             *
+             * This was the inital approach and this file solely exists for documentational purposes.
+             *
+             * @author Stephan Werk <Stephan.Werk@umusic.com>
+             * @author Dietrich Löbner <Dietrich.Loebner@umusic.com>
+             */
+
+            /*
+            Auflösung XS (Breite 320px)
+            1. Pionier- und Lowcost-Devices a la iPhone bis 3GS (Portrait)
+               alle Windows Mobile Devices (Portrait)
+            */
+            /*@media (max-width: 479px) and (-webkit-min-device-pixel-ratio: 1.0), (max-width: 479px) and (min-resolution: 96dpi) {*/
+            body {
+                background-color: #ff851b;
+            }
+            body:before {
+                content:'xs';
+            }
+            /*}*/
+
+            /*
+            Auflösung S (Breite 480px)
+            1. Android mit 480x8xx px z.B. Samsung Galaxy S2 (Portrait)
+            2. Retina iPhones ab iPhone 4 (Portrait)
+               720p Android Devices z.B. Samsung Galaxy S3 (Portrait)
+            3. 1080p Android Devices z.B. Samsung Galaxy S4 (Portrait)
+            4. Alle Devices mit einer Auflösung von mindestens 480px und weniger als 720px Breite
+               iPhone 3GS (Landscape)
+               alle Windows Mobile Devices (Landscape)
+            */
+            @media (max-width: 479px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 479px) and (min-resolution: 144dpi), (max-width: 479px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width: 479px) and (min-resolution: 192dpi), (max-width: 479px) and (-webkit-min-device-pixel-ratio: 3.0), (max-width: 479px) and (min-resolution: 288dpi), (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.0), (min-width: 480px) and (max-width: 719px) and (min-resolution: 96dpi) {
+                body {
+                    background-color: #85144b;
+                }
+                body:before {
+                    content:'sm';
+                }
+            }
+
+            /*
+            Auflösung M (Breite 720px)
+            1. Android Smartphones 8xx x 480px z.B. Samsung Galaxy S2 (Landscape)
+            2. Retina iPhones ab iPhone 4 (Landscape)
+               720p Android Devices z.B. Samsung Galaxy S3 (Landscape)
+               Android 7" Tablets mit hoher Auflösung z.B. Google Nexus 7 2013 1080x1920px (Portrait) - muss geprüft werden
+            3. 1080p Android Devices z.B. Samsung Galaxy S4 (Landscape)
+            4. Tablets mit Standard-Auflösung (Portrait)
+               iPad 1/2, mini mit 768x1024px
+               Android 10" Tablets mit 800x1280px
+            5. Android 7" Tablets z.B. Google Nexus 7 2012 mit 800x1280px (Portrait)
+            */
+            @media (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 480px) and (max-width: 719px) and (min-resolution: 144dpi), (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 480px) and (max-width: 719px) and (min-resolution: 192dpi), (min-width: 480px) and (max-width: 719px) and (-webkit-min-device-pixel-ratio: 3.0), (min-width: 480px) and (max-width: 719px) and (min-resolution: 288dpi), (min-width: 720px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.0), (min-width: 720px) and (max-width: 1023px) and (min-resolution: 96dpi), (min-width: 720px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 1.3), (min-width: 720px) and (max-width: 1023px) and (min-resolution: 124dpi) {
+                body {
+                    background-color: #b10dc9;
+                }
+                body:before {
+                    content:'md';
+                }
+            }
+
+            /*
+            Auflösung L (Breite 1024px)
+            1. Retina iPads (Portrait)
+               Android 10" Tablets mit hoher Auflösung 1600x2560px (Portrait)
+               Android 7" Tablets mit hoher Auflösung z.B. Google Nexus 7 2013 1920x1080px (Landscape) - muss geprüft werden
+            2. iPad 1/2, mini mit 1024x768px (Landscape)
+            3. Android 7" Tablets z.B. Google Nexus 7 2012 mit 1280x800px (Landscape)
+            */
+            @media (min-width: 720px) and (max-width: 1023px) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 720px) and (max-width: 1023px) and (min-resolution: 192dpi), (min-width: 1024px) and (max-width: 1279px) and (-webkit-min-device-pixel-ratio: 1.0), (min-width: 1024px) and (max-width: 1279px) and (min-resolution: 96dpi), (width: 1280px) and (-webkit-min-device-pixel-ratio: 1.3), (width: 1280px) and (min-resolution: 124dpi) {
+                body {
+                    background-color: #0074d9;
+                }
+                body:before {
+                    content:'lg';
+                }
+            }
+
+            /*
+            Auflösung XL (Breite 1280px)
+            1. Retina iPads (Landscape)
+               Android 10" Tablets mit hoher Auflösung 2560x1600px (Landscape)
+            2. Android 10" Tablets mit 1280x800px (Landscape)
+               Alle übrigen Devices ab 1280px Breite
+            */
+            @media (min-width: 1024px) and (-webkit-min-device-pixel-ratio: 2.0), (min-width: 1024px) and (min-resolution: 192dpi), (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.0), (min-width: 1280px) and (min-resolution: 96dpi) {
+                body {
+                    background-color: #001f3f;
+                }
+                body:before {
+                    content:'xl';
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    </body>
+</html>
